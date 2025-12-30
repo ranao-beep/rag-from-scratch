@@ -49,15 +49,13 @@ def search(query_embedding, embeddings, chunks, k):
     similarities.sort(key=lambda x: x[1],reverse=True)
 
     top_k = similarities[:k]
-    # for s in similarities:
-    #     if len(top_k) != k:
-    #         top_k.append(s)
-    # return top_k
     
     results = []
     for idx, simScore in top_k:
         results.append({
             "chunk":chunks[idx],
-            "score":simScore
+            "score":simScore,
+            "chunk id":idx,
+            
         })
     return results

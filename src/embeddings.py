@@ -8,7 +8,7 @@ def clean_text(text: str) -> str:
     text = re.sub(r"\s+", " ", text)
     return text
 
-def chunk_text(text:str, max_chunk_size: int=500, sentence_overlap: int=1) -> list[str]:
+def chunk_text(text:str, max_chunk_size: int=500) -> list[str]:
 
     text = clean_text(text)
 
