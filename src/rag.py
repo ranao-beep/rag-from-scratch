@@ -4,10 +4,7 @@ import json
 from src.retriever import retrieve
 from src.config import GROQ_API_KEY
 
-
-# Initialize Groq client
 client = Groq(api_key=GROQ_API_KEY)
-
 
 def format_prompt(context: str, question: str) -> str:
     return f"""
@@ -36,8 +33,6 @@ QUESTION:
 JSON ANSWER:
 """
 
-
-
 def rag_answer(query: str, k:int= 1, vectorstore_path="data/vectorstore.json") -> str:
 
     """
@@ -63,9 +58,7 @@ def rag_answer(query: str, k:int= 1, vectorstore_path="data/vectorstore.json") -
         {"role": "user", "content": prompt}
     ],
     temperature=0.1, top_p=0.3, max_tokens=200
-
 )
-
 
     raw_answer = completion.choices[0].message.content
 
